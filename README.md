@@ -13,4 +13,3 @@ It can be installed by pip from pipy or from the git repo location
 
 ## TODO
 - test it
-- publish to pypi
