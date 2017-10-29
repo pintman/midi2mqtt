@@ -1,8 +1,6 @@
 import paho.mqtt.client as mqtt
 import configparser
 import rtmidi.midiutil as midi
-import time
-import os
 
 
 class Midi2Broker:
