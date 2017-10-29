@@ -103,7 +103,7 @@ setup(
     # pip to create the appropriate form of executable for the target platform.
     entry_points={
         'console_scripts': [
-            'midi2mqtt=midi2mqtt:midi2mqtt',
+            'midi2mqtt=midi2mqtt.midi2mqtt:main',
         ],
     },
 )
