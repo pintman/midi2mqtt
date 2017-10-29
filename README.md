@@ -9,5 +9,4 @@ It can be installed by pip from the git repo location:
 
 ## TODO
 - test it
-- add setup.py
 - publish to pypi
