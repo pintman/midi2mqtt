@@ -26,7 +26,7 @@ class Midi2Broker:
         self.mqtt.publish(topic, payload)
 
 
-if __name__ == "__main__":
+def main():    
     client = Midi2Broker(config.mqtt_host,
                          config.mqtt_port,
                          config.midi_port)
@@ -35,3 +35,7 @@ if __name__ == "__main__":
           format(config.mqtt_host))
 
     print("finished")
+
+if __name__ == "__main__":
+    main()
+    
