@@ -19,10 +19,10 @@ setup(
     # Versions should comply with PEP440.  For a discussion on single-sourcing
     # the version across setup.py and the project code, see
     # https://packaging.python.org/en/latest/single_source_version.html
-    version='0.0.2',
+    version='0.0.3',
 
     description='Receive MIDI signals and forward them to a mqtt broker.',
-    long_description=long_description,
+    #long_description=long_description,
 
     # The project's main homepage.
     url='https://github.com/pintman/midi2mqtt',
