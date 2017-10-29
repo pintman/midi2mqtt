@@ -1,6 +1,7 @@
 import paho.mqtt.client as mqtt
 import configparser
 import rtmidi.midiutil as midi
+import midi2mqtt.config as config
 
 
 class Midi2Broker:
@@ -26,14 +27,11 @@ class Midi2Broker:
 
 
 if __name__ == "__main__":
-    config = configparser.ConfigParser()
-    config.read("midi.ini")
-
-    client = Midi2Broker(config["mqtt"]["host"],
-                         config.getint("mqtt", "port"),
-                         config.getint("hardware", "port"))
+    client = Midi2Broker(config.mqtt_host,
+                         config.mqtt_port,
+                         config.midi_port)
 
     print('Use a client to watch mqtt messages: mosquitto_sub -h {} -t "midi/#" -v'.
-          format(config["mqtt"]["host"]))
+          format(config.mqtt_host))
 
     print("finished")
