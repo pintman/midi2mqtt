@@ -5,7 +5,7 @@ import rtmidi.midiutil as midi
 
 class Midi2Broker:
     """Receiving MIDI events and sending them to an MQTT broker."""
-    
+
     def __init__(self, host, port, midi_port):
         self.midiin, port_name = midi.open_midiinput(midi_port)
         print("listening to midi device", port_name)
@@ -28,7 +28,7 @@ class Midi2Broker:
 if __name__ == "__main__":
     config = configparser.ConfigParser()
     config.read("midi.ini")
-    
+
     client = Midi2Broker(config["mqtt"]["host"],
                          config.getint("mqtt", "port"),
                          config.getint("hardware", "port"))
