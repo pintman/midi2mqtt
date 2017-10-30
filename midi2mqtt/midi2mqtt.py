@@ -1,5 +1,4 @@
 import paho.mqtt.client as mqtt
-import configparser
 import rtmidi.midiutil as midi
 import midi2mqtt.config as config
 
@@ -26,7 +25,7 @@ class Midi2Broker:
         self.mqtt.publish(topic, payload)
 
 
-def main():    
+def main():
     client = Midi2Broker(config.mqtt_host,
                          config.mqtt_port,
                          config.midi_port)
@@ -38,4 +37,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-    
