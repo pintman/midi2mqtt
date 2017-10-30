@@ -9,7 +9,7 @@ It can be installed by pip from pipy or from the git repo location
 	$ pip install midi2mqtt
 	
 	# from sources
-    $ pip install git+https://github.com/pintman/midi2mqtt
+	$ pip install git+https://github.com/pintman/midi2mqtt
 
 ## TODO
 - test it
