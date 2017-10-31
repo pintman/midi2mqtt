@@ -1,6 +1,5 @@
 import paho.mqtt.client as mqtt
 import rtmidi.midiutil as midi
-import midi2mqtt.config as config
 import argparse
 
 
