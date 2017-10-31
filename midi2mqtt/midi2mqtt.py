@@ -35,13 +35,17 @@ class Midi2Broker:
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--host', help="Host of the MQTT-Broker",
+    parser.add_argument('--host',
+                        help="Host of the MQTT-Broker, defaults to localhost",
                         default="localhost")
-    parser.add_argument('--port', help="Port of the MQTT-Broker",
+    parser.add_argument('--port',
+                        help="Port of the MQTT-Broker, default: 1883",
                         type=int, default=1883)
-    parser.add_argument('--midiport', help="Port of the MIDI Interface",
+    parser.add_argument('--midiport',
+                        help="Port of the MIDI Interface, default:1",
                         type=int, default=1)
-    parser.add_argument('--topicprefix', help="Prefix for the MQTT topic",
+    parser.add_argument('--topicprefix',
+                        help="Prefix for the MQTT topic default:midi",
                         type=str, default="midi")
     args = parser.parse_args()
 
