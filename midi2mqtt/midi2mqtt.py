@@ -7,7 +7,8 @@ import time
 class Midi2Broker:
     """Receiving MIDI events and sending them to an MQTT broker."""
 
-    def __init__(self, host, port, midi_port):
+    def __init__(self, host, port, midi_port, topicprefix):
+        self.topicprefix = topicprefix
         self.midiin, port_name = midi.open_midiinput(midi_port)
         print("listening to midi device", port_name)
         self.midiin.set_callback(self.on_midi_event)
@@ -20,7 +21,8 @@ class Midi2Broker:
         message, _ = event
         chan, note, val = message
 
-        self.publish("midi/chan/{0}/note/{1}/".format(chan, note), val)
+        self.publish(
+            self.topicprefix+"/chan/{0}/note/{1}/".format(chan, note), val)
 
     def publish(self, topic, payload):
         self.mqtt.publish(topic, payload)
@@ -39,13 +41,16 @@ def main():
                         type=int, default=1883)
     parser.add_argument('--midiport', help="Port of the MIDI Interface",
                         type=int, default=1)
+    parser.add_argument('--topicprefix', help="Prefix for the MQTT topic",
+                        type=str, default="midi")
     args = parser.parse_args()
 
     print('Use a client to watch mqtt messages: mosquitto_sub -h {} -t "midi/#" -v'.
           format(args.host))
     client = Midi2Broker(args.host,
                          args.port,
-                         args.midiport)
+                         args.midiport,
+                         args.topicprefix)
     client.start_loop()
 
     print("finished")
