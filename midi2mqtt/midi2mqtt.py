@@ -26,6 +26,7 @@ class Midi2Broker:
         self.mqtt.publish(topic, payload)
 
     def start_loop(self):
+        """Run an endless loop and wait for events."""
         while True:
             time.sleep(1)
 
