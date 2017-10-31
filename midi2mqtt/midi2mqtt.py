@@ -1,6 +1,7 @@
 import paho.mqtt.client as mqtt
 import rtmidi.midiutil as midi
 import argparse
+import time
 
 
 class Midi2Broker:
@@ -24,6 +25,10 @@ class Midi2Broker:
     def publish(self, topic, payload):
         self.mqtt.publish(topic, payload)
 
+    def start_loop(self):
+        while True:
+            time.sleep(1)
+
 
 def main():
     parser = argparse.ArgumentParser()
@@ -38,6 +43,7 @@ def main():
     client = Midi2Broker(args.host,
                          args.port,
                          args.midiport)
+    client.start_loop()
 
     print('Use a client to watch mqtt messages: mosquitto_sub -h {} -t "midi/#" -v'.
           format(args.host))
