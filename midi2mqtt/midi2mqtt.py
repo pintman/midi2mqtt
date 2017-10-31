@@ -41,13 +41,12 @@ def main():
                         type=int, default=1)
     args = parser.parse_args()
 
+    print('Use a client to watch mqtt messages: mosquitto_sub -h {} -t "midi/#" -v'.
+          format(args.host))
     client = Midi2Broker(args.host,
                          args.port,
                          args.midiport)
     client.start_loop()
-
-    print('Use a client to watch mqtt messages: mosquitto_sub -h {} -t "midi/#" -v'.
-          format(args.host))
 
     print("finished")
 
