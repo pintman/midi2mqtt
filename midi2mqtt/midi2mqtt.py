@@ -1,4 +1,5 @@
 import paho.mqtt.client as mqtt
+# TODO maybe switching to more common pygame.midi
 import rtmidi.midiutil as midi
 import argparse
 import time
