@@ -102,3 +102,6 @@ ENV/
 
 # emacs backup files
 *~
+
+.vscode/
+poetry.lock
